@@ -1,17 +1,6 @@
 group 'com.baseflow.geolocator'
 version '1.0'
 
-buildscript {
-    repositories {
-        google()
-        mavenCentral()
-    }
-
-    dependencies {
-        classpath 'com.android.tools.build:gradle:8.0.2'
-    }
-}
-
 rootProject.allprojects {
     repositories {
         google()
@@ -22,21 +11,21 @@ rootProject.allprojects {
 apply plugin: 'com.android.library'
 
 android {
-    if (project.android.hasProperty("namespace")) {
-        namespace("com.baseflow.geolocator")
-    }
+    namespace "com.baseflow.geolocator"
 
-    compileSdk flutter.compileSdkVersion
+    compileSdkVersion 35
 
     defaultConfig {
-        minSdkVersion flutter.minSdkVersion
+        minSdkVersion 19
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
     lintOptions {
         disable 'InvalidPackage'
-    }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
     }
 }
 
